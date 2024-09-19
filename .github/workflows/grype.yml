@@ -1,0 +1,19 @@
+name: Grype security scan
+
+# This will run every time we create push a commit to `main`.
+# Reference: https://docs.github.com/en/actions/learn-github-actions/events-that-trigger-workflows
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  scan_project:
+    name: Scan for vulnerabilities
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scan current project
+        uses: anchore/scan-action@v3
+        with:
+          path: "."
