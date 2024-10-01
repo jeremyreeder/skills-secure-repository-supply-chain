@@ -14,6 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Scan current project
-        uses: anchore/scan-action@v3
+        uses: anchore/scan-action@v4
         with:
           path: "."
